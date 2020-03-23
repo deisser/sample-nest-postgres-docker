@@ -1,0 +1,16 @@
+version: '3.4'
+    
+services:
+  postgres_image:
+    image: postgres:12.2
+    ports:
+      - 5433:5432
+    restart: always
+    volumes:
+      - sample_db_volume:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: "sample-db"
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "postgres"
+volumes:
+  sample_db_volume:
